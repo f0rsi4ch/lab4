@@ -1,0 +1,5 @@
+text = input("Введіть рядок: ")
+n = int(input("Введіть номер символу для видалення: "))
+
+result = text[:n - 1] + text[n:]
+print("Результат:", result)
