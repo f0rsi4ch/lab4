@@ -1,0 +1,26 @@
+user_input_str = input("Введіть рядок: ")
+user_target_char = input("Введіть букву (мінімум 3 рази): ")
+
+if len(user_target_char) != 1:
+    print("Помилка: Потрібно лише одну букву.")
+    exit()
+
+target_lower = user_target_char.lower()
+input_lower = user_input_str.lower()
+result_list = list(user_input_str)
+
+if input_lower.count(target_lower) < 3:
+    print(f"Помилка: Буква '{user_target_char}' зустрічається менше 3 разів.")
+    exit()
+
+first_idx = input_lower.find(target_lower)
+last_idx = input_lower.rfind(target_lower)
+
+for i in range(first_idx + 1, last_idx):
+    if result_list[i].lower() == target_lower:
+        result_list[i] = result_list[i].upper()
+
+modified_string = "".join(result_list)
+        
+print(f"Оригінальний рядок: {user_input_str}")
+print(f"Модифікований рядок: {modified_string}")
