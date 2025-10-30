@@ -1,0 +1,11 @@
+input_string = input("Введіть рядок: ")
+
+digits = [char for char in input_string if char.isdigit()]
+digits.sort(reverse=True)
+
+if all(d == '0' for d in digits):
+    largest_number = "0"
+else:
+    largest_number = "".join(digits)
+
+print(f"Найбільше число: {largest_number}")
