@@ -1,0 +1,8 @@
+text = input("Введіть рядок: ")
+symbol = input("Введіть символ: ")
+
+if len(symbol) != 1:
+    print("Помилка: потрібно ввести лише один символ.")
+else:
+    count = text.count(symbol)
+    print(f"Символ '{symbol}' зустрічається {count} раз(и).")
