@@ -1,0 +1,31 @@
+input_line = input("Введіть рядок для перевірки на IP-адресу: ")
+
+octets = input_line.split('.')
+result = "Yes"
+
+if len(octets) != 4:
+    result = "No"
+else:
+    for octet in octets:
+        if not octet:
+            result = "No"
+            break
+        
+        if not octet.isdigit():
+            result = "No"
+            break
+        
+        if len(octet) > 1 and octet.startswith('0'):
+            result = "No"
+            break
+            
+        try:
+            num = int(octet)
+            if not (0 <= num <= 255):
+                result = "No"
+                break
+        except ValueError:
+            result = "No"
+            break
+
+print(result)
